@@ -1,0 +1,58 @@
+---
+layout: page
+title: Blog
+permalink: /blog/
+---
+<!-- Slider Start -->
+<section id="global-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1>Read the latest stories and news</h1>
+          <p>Be always up to date</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ {% assign sortedPosts = site.posts | sort: 'date' %}
+{% for post in sortedPosts reversed %}
+<div class="post-area jumbotron">
+  <a href="{{ post.url | prepend: site.baseurl }}" class="bold">{{ post.title }}</a>
+  <p class="post-date">{{ post.date | date_to_long_string }}</p>
+  <div class="row">
+
+  {% assign foundImage = 0 %}
+  {% assign images = post.content | split:"<img " %}
+    {% for image in images %}
+      {% if image contains 'src' %}
+          {% if foundImage == 0 %}
+            {% assign html = image | split:"/>" | first %}
+           
+            {% assign foundImage = 1 %}
+          {% endif %}
+      {% endif %}
+     {% endfor %}
+  {% if foundImage ==1 %}
+    <div class="col-md-4">
+     <img class="excerptimage" {{ html }} />
+    </div>
+    <div class="col-md-8">
+       <p>
+        {{ post.excerpt}}
+      </p>
+    </div>
+  {% else %}
+
+      <div class="col-md-12">
+       <p>
+        {{ post.excerpt}}
+      </p>
+    </div>
+
+  {% endif %}  
+ </div>
+ <a href="{{ post.url | prepend: site.baseurl }}" class="readMore">Read more...</a>
+</div>
+{% endfor %}

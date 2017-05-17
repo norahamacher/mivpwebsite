@@ -1,0 +1,279 @@
+---
+title: MIVP
+layout: page
+permalink: "/"
+---
+
+<!-- Slider Start -->
+<section id="slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <div class="block">
+          <h1 class="animated fadeInUp">Monash Immersive Visualisation Platform</h1>
+          <p class="animated fadeInUp"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Wrapper Start -->
+<section id="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-12">
+        <div class="block">
+          <div class="section-title">
+            <h2>Welcome</h2>
+            <p> Our mission is to <b>partner with research groups and industry to transform visualisation practice, by innovating and promoting new paradigms in immersive, collaborative visualisation of data and environments.</b></p>
+          </div>
+          <p>
+
+MIVP operates a number of Monash University's advanced, immersive and large scale visualisation facilities, ranging from the ultra-scale CAVE2, to personal head-mounted virtual reality (VR) devices. We connect you - researchers and industry - to nascent display and interaction technologies that stand to change the way you visualise, comprehend and analyse your big data.
+<br><br>
+Our peak facility, the Monash CAVE2, is a 2D and 3D virtual reality environment that can be programmed to render large and complex datasets in unparalleled clarity. As the viewfinder of the 21st Century Microscope, CAVE2 enables the interactive exploration of your data from sources as diverse as the Australian Synchrotron, unmanned aerial vehicles, the world's largest radiotelescopes, and the latest and greatest biomedical imaging systems.
+<br><br>
+All MIVP staff are programmers with in-depth knowledge of computer graphics, numerical computing, scientific visualisation, virtual reality, and a truly bewildering array of data and graphics file formats! We can work with you to develop better, faster or cheaper ways of processing and visualising your data. 
+<br><br>
+Our focus is your insight. When we hear "That's interesting - I hadn't noticed that before," our job is done.</p>
+        </div>
+      </div><!-- .col-md-7 close -->
+      <div class="col-md-5 col-sm-12">
+        <div class="block" id="nextexit">
+          <img src="img/wrapper-img.jpg" alt="Img">
+        </div>
+      </div><!-- .col-md-5 close -->
+    </div>
+  </div>
+</section>
+<hr>
+<!-- Clients Logo Section Start -->
+<section id="clients-logo-section">
+
+  <div class="container">
+    <h3> Latest stories and news </h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <div id="lateststories" class="owl-carousel owl-theme">
+             {% for post in site.posts limit:5 %}
+              <div class="carouselelement">
+                <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+                {% assign foundImage = 0 %}
+                  {% assign images = post.content | split:"<img " %}
+                  {% for image in images %}
+                    {% if image contains 'src' %}
+                      {% if foundImage == 0 %}
+                        {% assign html = image | split:"/>" | first %}
+                           <hr>
+                        <img class="excerptimage" {{ html }} />
+                        <hr>
+                        {% assign foundImage = 1 %}
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  {{post.excerpt}}
+              </div>
+             {% endfor %}
+       
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section id="feature">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-6">
+      <h2>WE BELIEVE IN GREAT IDEAS</h2>
+      <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <a href="#" class="btn btn-view-works">View Works</a>
+    </div>
+  </div>
+</div>
+</section>
+
+-->
+<!-- Service Start -->
+<!--
+<section id="service">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="icon ion-coffee"></i>
+          <h4>Branding</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-compass"></i>
+          <h4>Web Design</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-image"></i>
+          <h4>App Design</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-bug"></i>
+          <h4>Start Up</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-headphone"></i>
+          <h4>Logo Design</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-leaf"></i>
+          <h4>Development</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-planet"></i>
+          <h4>Brand Identity</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="service-item">
+          <i class="ion-earth"></i>
+          <h4>Brand Identity</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+-->
+<!-- Call to action Start -->
+
+<!--
+<section id="call-to-action">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h2>We design delightful digital experiences.</h2>
+          <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+          <a class="btn btn-default btn-call-to-action" href="#" >Tell Us Your Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+<!-- Content Start -->
+<!--
+<section id="testimonial">
+  <div class="container">
+    <div class="row">
+      <div class="section-title text-center">
+        <h2>Fun Facts About Us</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="block">
+          <ul class="counter-box clearfix">
+            <li>
+              <div class="block">
+                <i class="ion-ios-chatboxes-outline"></i>
+                <h4 class="counter">20000</h4>
+                <span>Cups Of Coffee</span>
+              </div>
+            </li>
+            <li>
+              <div class="block">
+                <i class="ion-ios-glasses-outline"></i>
+                <h4 class="counter">20000</h4>
+                <span>Cups Of Coffee</span>
+              </div>
+            </li>
+            <li>
+              <div class="block">
+                <i class="ion-ios-compose-outline"></i>
+                <h4 class="counter">20000</h4>
+                <span>Cups Of Coffee</span>
+              </div>
+            </li>
+            <li>
+              <div class="block">
+                <i class="ion-ios-timer-outline"></i>
+                <h4 class="counter">20000</h4>
+                <span>Cups Of Coffee</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="testimonial-carousel">
+          <div id="testimonial-slider" class="owl-carousel">
+            <div>
+                <img src="img/cotation.png" alt="IMG">
+                <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                <div class="user">
+                  <img src="img/item-img1.jpg" alt="Pepole">
+                  <p><span>Rose Ray</span> CEO-Themefisher</p>
+                </div>
+            </div>
+            <div>
+              <img src="img/cotation.png" alt="IMG">
+                <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                <div class="user">
+                  <img src="img/item-img1.jpg" alt="Pepole">
+                  <p><span>Rose Ray</span> CEO-Themefisher</p>
+                </div>
+            </div>
+            <div>
+              <img src="img/cotation.png" alt="IMG">
+                <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                <div class="user">
+                  <img src="img/item-img1.jpg" alt="Pepole">
+                  <p><span>Rose Ray</span> CEO-Themefisher</p>
+                </div>
+            </div>
+            <div>
+              <img src="img/cotation.png" alt="IMG">
+                <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                <div class="user">
+                  <img src="img/item-img1.jpg" alt="Pepole">
+                  <p><span>Rose Ray</span> CEO-Themefisher</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
